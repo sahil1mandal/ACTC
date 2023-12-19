@@ -1,0 +1,59 @@
+package module1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class first {
+	WebDriver driver;
+	
+	@BeforeTest
+	public void enter()
+	{
+		WebDriverManager.chromedriver().setup();
+		this.driver = new ChromeDriver();
+		driver.get("http://192.168.23.254:72/");
+		driver.manage().window().maximize();
+		
+		
+	}
+	
+	@Test
+	public void Enterlogin() throws InterruptedException
+	{
+		System.out.println("first");
+		driver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/div[2]/button")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@placeholder='Enter your User Name or NSRS ID']")).sendKeys("NSF_Archery");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Your Password']")).sendKeys("NSF_ARCHERY_0AFC6");
+		Thread.sleep(7000);
+		
+	
+		
+		
+	}
+	@Test
+	public void login1() throws InterruptedException 
+	{
+		driver.findElement(By.xpath("//div[@id='usernameTab']//form//div//div//button[@type='button']")).click();
+		Thread.sleep(5000);
+		System.out.println("second case is pass");
+		
+		
+	}
+	
+	@AfterTest
+	public void close() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		driver.quit();
+	}
+
+}
