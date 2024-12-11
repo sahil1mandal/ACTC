@@ -1,0 +1,24 @@
+// <reference types="Cypress" />
+describe('template spec', () => {
+    it('passes', () => {
+      cy.visit('https://oasdev.devmpsconline.in/candidate/login')
+      cy.viewport(1490, 800); // Sets the viewport size to 1280px wide by 720px tall
+
+      cy.get('#userName').type('testmps@yopmail.com')
+      cy.get('#password').type('August@1')
+      cy.get('.row > .d-flex').click()
+
+      cy.wait(10000);
+
+      cy.get('.form-group.col-md-9.d-flex.justify-content-center').click();
+        console.log('login sucessfull')
+
+        cy.get('div > .nav-link').click()
+
+
+
+
+
+
+})
+})
